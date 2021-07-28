@@ -34,7 +34,8 @@ export const Container = styled.div`
         margin === "4-0-0-0" ? "4rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" 
     )};
     padding: ${({padding}) => (
-        padding === "5-0-5-0" ? "5rem 0rem 5rem 0rem" : "0rem 0rem 0rem 0rem" 
+        padding === "5-0-5-0" ? "5rem 0rem 5rem 0rem" : "0rem 0rem 0rem 0rem" &&
+        padding === "0-4-0-4" ? "0rem 4rem 0rem 4rem" : "0rem 0rem 0rem 0rem" 
     )};
 `;
 
@@ -71,8 +72,10 @@ export const Image = styled.img`
         width === "416px" ? "416px" : "100%"
     )};
     height: ${({height}) => (
+        height === "30px" ? "80px" : "100%" &&
         height === "50px" ? "80px" : "100%" &&
         height === "100px" ? "150px" : "100%" &&
+        height === "180px" ? "230px" : "100%" &&
         height === "439px" ? "439px" : "100%"
     )};
     margin: ${({margin}) => (
