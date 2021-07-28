@@ -58,6 +58,9 @@ export const Wrapper = styled.div`
         margin === "3-0-0-0" ? "3rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
         margin === "5-0-0-0" ? "5rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
     )};
+    padding: ${({padding}) => (
+        padding === "0-1-0-1" ? "0rem 1rem 0rem 1rem" : "none"
+    )};
 
     @media screen and (max-width: 768px){
         display: ${({navigation}) => (
@@ -90,6 +93,9 @@ export const Image = styled.img`
 
 export const Rows = styled(Row)`
     width: 100% !important;
+    margin: ${({margin}) => (
+        margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
+    )};
 `;
 
 export const Column = styled(Col)`
@@ -106,7 +112,8 @@ export const Buttons = styled(Button)`
         padding === "1rem 2rem 1rem 2rem" ? "1rem 2rem 1rem 2rem" : "none"
     )};
     margin: ${({margin}) => (
-        margin === "3-0-0-0" ? "3rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
+        margin === "3-0-0-0" ? "3rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
+        margin === "2-0-0-1" ? "1rem 0rem 0rem 1rem" : "0rem 0rem 0rem 0rem"
     )};
     transition: .3s all;
 
@@ -180,6 +187,10 @@ export const Link = styled.a`
     color: ${({color})  => (
         color === "white" ? "white" : "black"
     )};
+`;
+
+export const Form = styled.form`
+    padding: 0rem 8rem;
 `;
 
 
