@@ -9,9 +9,12 @@ export const Section = styled.section`
 
 export const Container = styled.div`
     height: ${({height}) => (
-        height === "90vh" ? "80vh" : "100%"
+        height === "90vh" ? "75vh" : "100%" &&
+        height === "9px" ? "9px" : "100%"
     )};
-    width: 100%;
+    width: ${({width}) => (
+        width === "60px" ? "60px" : "100%"
+    )};
     background: ${({background}) => (
         background === "Default" ? "#E50000" : "transparent"
     )};
@@ -19,7 +22,7 @@ export const Container = styled.div`
         backgroundImage === 'hero' ? "url(https://res.cloudinary.com/emacon-production/image/upload/v1627373022/Nairobarry/Untitled_1.44.1_il1dks.jpg)" : "none"
     )};
     margin: ${({margin}) => (
-        margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
+        margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" 
     )};
 `;
 
@@ -36,7 +39,9 @@ export const Wrapper = styled.div`
     )};
     margin: ${({margin}) => (
         margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
-        margin === "1.5-0-0-0" ? "1.5rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
+        margin === "1.5-0-0-0" ? "1.5rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
+        margin === "5-0-0-15" ? "5rem 0rem 0rem 15rem" : "0rem 0rem 0rem 0rem" &&
+        margin === "0-0-0-1" ? "0rem 0rem 0rem 1rem" : "0rem 0rem 0rem 0rem"
     )};
 
     @media screen and (max-width: 768px){
@@ -71,6 +76,12 @@ export const Buttons = styled(Button)`
     border: ${({border}) => (
         border ? "1px Solid #E50000" : "none"
     )};
+    padding: ${({padding}) => (
+        padding === "1rem 2rem 1rem 2rem" ? "1rem 2rem 1rem 2rem" : "none"
+    )};
+    margin: ${({margin}) => (
+        margin === "3-0-0-0" ? "3rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
+    )};
     transition: .3s all;
 
     &:hover {
@@ -81,6 +92,59 @@ export const Buttons = styled(Button)`
             hoverBorder === "Default" ? "1px Solid #E50000" : "none"
         )};
     }
+`;
+
+export const Title1 = styled.h1`
+    color: ${({color}) => (
+        color === "whitesmoke" ? "whitesmoke" : "black" &&
+        color === "white" ? "white" : "black"
+    )};
+    font-weight: ${({fontWeight}) => (
+        fontWeight === 'bold' ? 'bold' : ''
+    )};
+    margin: ${({margin}) => (
+        margin === "2-0-0-0" ? "2rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
+    )};
+`;
+
+export const Title2 = styled.h2`
+    color: ${({color}) => (
+        color === "whitesmoke" ? "whitesmoke" : "black"
+    )};
+    font-weight: ${({fontWeight}) => (
+        fontWeight === 'bold' ? 'bold' : ''
+    )};
+    margin: ${({margin}) => (
+        margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
+    )};
+`;
+
+export const Title3 = styled.h3``;
+
+export const Title4 = styled.h4``;
+
+export const Placeholder = styled.p`
+    background: ${({background}) => (
+        background === "white" ? "white" : "transparent"
+    )}; 
+    color: ${({color}) => (
+        color === "whitesmoke" ? "whitesmoke" : "black" &&
+        color === "white" ? "white" : "black" 
+    )};
+    font-weight: ${({fontWeight}) => (
+        fontWeight === 'bold' ? 'bold' : ''
+    )};
+    margin: ${({margin}) => (
+        margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
+        margin === "1.5-0-0-0" ? "1.2rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
+        margin === "1.5-0-0-1" ? "1.2rem 0rem 0rem 1rem" : "0rem 0rem 0rem 0rem"
+    )};
+    border: ${({border}) => (
+        border ? "1px Solid whitesmoke" : "none"
+    )};
+    padding: ${({padding}) => (
+        padding === "0.1-0.2-0.1-0.2" ? "0.1rem 0.2rem 0.1rem 0.2rem" : "0rem 0rem 0rem 0rem"
+    )};
 `;
 
 export const Link = styled.a`
