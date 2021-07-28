@@ -13,16 +13,28 @@ export const Container = styled.div`
         height === "9px" ? "9px" : "100%"
     )};
     width: ${({width}) => (
-        width === "60px" ? "60px" : "100%"
+        width === "60px" ? "60px" : "100%" &&
+        width === "80px" ? "180px" : "100%"
     )};
     background: ${({background}) => (
-        background === "Default" ? "#E50000" : "transparent"
+        background === "Default" ? "#E50000" : "transparent" &&
+        background === "primary" ? "#313131" : "transparent"
     )};
     background-image: ${({backgroundImage}) => (
         backgroundImage === 'hero' ? "url(https://res.cloudinary.com/emacon-production/image/upload/v1627373022/Nairobarry/Untitled_1.44.1_il1dks.jpg)" : "none"
     )};
+    background-position-x: ${({backgroundPositionX}) => (
+        backgroundPositionX === "-2rem" ? "-2rem" : "none"
+    )};
+    background-position-y: ${({backgroundPositionY}) => (
+        backgroundPositionY === "-2rem" ? "-2rem" : "none"
+    )};
     margin: ${({margin}) => (
-        margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" 
+        margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
+        margin === "4-0-0-0" ? "4rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" 
+    )};
+    padding: ${({padding}) => (
+        padding === "5-0-5-0" ? "5rem 0rem 5rem 0rem" : "0rem 0rem 0rem 0rem" 
     )};
 `;
 
@@ -41,7 +53,9 @@ export const Wrapper = styled.div`
         margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
         margin === "1.5-0-0-0" ? "1.5rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
         margin === "5-0-0-15" ? "5rem 0rem 0rem 15rem" : "0rem 0rem 0rem 0rem" &&
-        margin === "0-0-0-1" ? "0rem 0rem 0rem 1rem" : "0rem 0rem 0rem 0rem"
+        margin === "0-0-0-1" ? "0rem 0rem 0rem 1rem" : "0rem 0rem 0rem 0rem" &&
+        margin === "3-0-0-0" ? "3rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
+        margin === "5-0-0-0" ? "5rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
     )};
 
     @media screen and (max-width: 768px){
@@ -53,10 +67,19 @@ export const Wrapper = styled.div`
 
 export const Image = styled.img`
     width: ${({width}) => (
-        width === "50px" ? "80px" : "100%"
+        width === "50px" ? "80px" : "100%" &&
+        width === "416px" ? "416px" : "100%"
     )};
     height: ${({height}) => (
-        height === "50px" ? "80px" : "100%"
+        height === "50px" ? "80px" : "100%" &&
+        height === "100px" ? "150px" : "100%" &&
+        height === "439px" ? "439px" : "100%"
+    )};
+    margin: ${({margin}) => (
+        margin === "3-0-0-0" ? "3rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" 
+    )};
+    padding: ${({padding}) => (
+        padding === "0-2-0-2" ? "0rem 2rem 0rem 2rem" : "0rem 0rem 0rem 0rem" 
     )};
     object-fit: cover;
     background-size: cover;
@@ -137,14 +160,17 @@ export const Placeholder = styled.p`
     margin: ${({margin}) => (
         margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
         margin === "1.5-0-0-0" ? "1.2rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
-        margin === "1.5-0-0-1" ? "1.2rem 0rem 0rem 1rem" : "0rem 0rem 0rem 0rem"
+        margin === "1.5-0-0-1" ? "1.2rem 0rem 0rem 1rem" : "0rem 0rem 0rem 0rem" &&
+        margin === "3-0-0-0" ? "3rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
     )};
     border: ${({border}) => (
         border ? "1px Solid whitesmoke" : "none"
     )};
     padding: ${({padding}) => (
-        padding === "0.1-0.2-0.1-0.2" ? "0.1rem 0.2rem 0.1rem 0.2rem" : "0rem 0rem 0rem 0rem"
+        padding === "0.1-0.2-0.1-0.2" ? "0.1rem 0.2rem 0.1rem 0.2rem" : "0rem 0rem 0rem 0rem" &&
+        padding === "0-2-0-0" ? "0rem 8rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
     )};
+    
 `;
 
 export const Link = styled.a`
