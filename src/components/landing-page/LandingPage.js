@@ -24,7 +24,7 @@ function LandingPage() {
                     display="flex"
                 >
                   <Navigation toggle={toggle}/>  
-                  <MobileNavigation isOpen={mobileNav} toggle={toggle}/>
+                  {/* <MobileNavigation isOpen={mobileNav} toggle={toggle}/> */}
                 </Wrapper>
 
                 {/* Hero Content */}
@@ -34,9 +34,6 @@ function LandingPage() {
                 >
                     
                 </Wrapper>
-                
-
-                
                 
             </Container>
         </Section>

@@ -13,19 +13,13 @@ export const Container = styled.div`
     )};
     width: 100%;
     background: ${({background}) => (
-        background === "Default" ? "#E50000" : "black"
+        background === "Default" ? "#E50000" : "transparent"
     )};
     background-image: ${({backgroundImage}) => (
         backgroundImage === 'hero' ? "url(https://res.cloudinary.com/emacon-production/image/upload/v1627373022/Nairobarry/Untitled_1.44.1_il1dks.jpg)" : "none"
     )};
     margin: ${({margin}) => (
         margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
-    )};
-
-    ${({type}) => (
-        type === 'mobileNav' ? (
-            `opacity: ${({isOpen}) => (isOpen ? '1' : '0')};`
-        ) : ""
     )};
 `;
 
