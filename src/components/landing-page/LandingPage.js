@@ -5,6 +5,7 @@ import { Buttons, Column, Container, Image, Placeholder, Rows, Section, Title1, 
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import { RecentActors } from '@material-ui/icons';
 import Sponsors from '../common/Sponsors';
+import OurTeam from '../common/OurTeam';
 
 function LandingPage() {
     const [mobileNav, setMobileNav] = useState(false);
@@ -193,6 +194,13 @@ function LandingPage() {
             {/* Sponsors */}
             <Container id="sponsors">
                 <Sponsors/>
+            </Container>
+
+            {/* Our Team */}
+            <Container
+                margin="4-0-0-0"
+            >
+                <OurTeam/>
             </Container>
         </Section>
     )
