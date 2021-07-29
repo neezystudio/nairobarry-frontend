@@ -44,19 +44,24 @@ var settings = {
 
 function OurTeam() {
     return (
-        <Wrapper display="flex">
+        <Wrapper margin="8-0-0-0">
             {/* Title */}
-            <Wrapper >
-                <Title2 fontWeight="bold">Our Team</Title2>
-                <Container
-                    background="Default"
-                    height="9px"
-                    width="80px"
-                    margin="1-0-0-0"
-                /> 
+            <Wrapper>
+                <Wrapper display="flex">
+                    <Title2 fontWeight="bold">Our Team</Title2>  
+                </Wrapper>
+                <Wrapper display="flex">
+                    <Container
+                        background="Default"
+                        height="9px"
+                        width="100px"
+                        margin="1-0-0-0"
+                    /> 
+                </Wrapper>
+                
             </Wrapper>
 
-            <Wrapper>
+            <Wrapper margin="1.5-0-0-0">
                 <Slider {...settings}>
                     {ourTeamData.map((ourTeam) => (
                         <Container padding="0-4-0-4" key={ourTeam.id}>

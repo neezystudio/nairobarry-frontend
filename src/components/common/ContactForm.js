@@ -21,16 +21,12 @@ function ContactForm() {
     const [message, setMessage] = useState();
 
     return (
-        <Wrapper display="flex">
+        <Wrapper display="flex" margin="8-0-0-0">
             <Rows>
                 {/* Contact Information */}
                 <Column md={5}>
-                    <Wrapper 
-                        
-                    >
-                        <Wrapper
-                            
-                        >
+                    <Wrapper>
+                        <Wrapper>
                             <Wrapper
                                 display="flex"
                                 justifyContent="end"
@@ -52,7 +48,7 @@ function ContactForm() {
                             <Wrapper
                                 display="flex" 
                                 justifyContent="end"
-                                margin="1-0-0-0"
+                                margin="1.5-0-0-0"
                             >
                                 <Title4>Our Contact Details</Title4>
                             </Wrapper>
