@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MenuData } from '../../data/MenuData'
 import { Buttons, Column, Container, Image, Link, MenuBars, Rows, ScrollLinks, Wrapper } from '../styled-components/StyledComponents'
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 
 function Navigation({ toggle }) {
+    const [navbar, setNavbar] = useState(false);
+
+    const changeBackground = () => {
+        if(window.scrollY >= 80) {
+            setNavbar(true);
+        } else {
+            setNavbar(false);
+        }
+    }
+
+    window.addEventListener('scroll', changeBackground);
+
     return (
         <Container
             display="flex"
-            margin="1-0-0-0"
+            background={navbar ? 'black' : ''}
+            padding="1-0-1-0"
+            position="fixed"
+            height="14vh"
+            zIndex="1000"
         >
             {/* Navigation Mobile Optimization */}
             <React.Fragment>

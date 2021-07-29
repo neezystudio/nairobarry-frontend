@@ -9,6 +9,7 @@ export const Section = styled.section`
 
 export const Container = styled.div`
     height: ${({height}) => (
+        height === "14vh" ? "14vh" : "100%" &&
         height === "90vh" ? "75vh" : "100%" &&
         height === "9px" ? "9px" : "100%"
     )};
@@ -37,9 +38,17 @@ export const Container = styled.div`
     )};
     padding: ${({padding}) => (
         padding === "5-0-5-0" ? "5rem 0rem 5rem 0rem" : "0rem 0rem 0rem 0rem" &&
+        padding === "1-0-1-0" ? "1rem 0rem 1rem 0rem" : "0rem 0rem 0rem 0rem" &&
         padding === "2-0-1-0" ? "2rem 0rem 1rem 0rem" : "0rem 0rem 0rem 0rem" &&
         padding === "0-4-0-4" ? "0rem 4rem 0rem 4rem" : "0rem 0rem 0rem 0rem" 
     )};
+    position: ${({position}) => (
+        position === "fixed" ? "fixed" : ""
+    )};
+    z-index: ${({zIndex}) => (
+        zIndex === "1000" ? "1000" : ""
+    )};
+    transition: .3s all;
 `;
 
 export const Wrapper = styled.div`
@@ -57,6 +66,7 @@ export const Wrapper = styled.div`
         margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
         margin === "1.5-0-0-0" ? "1.5rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
         margin === "5-0-0-15" ? "5rem 0rem 0rem 15rem" : "0rem 0rem 0rem 0rem" &&
+        margin === "10-0-0-15" ? "10rem 0rem 0rem 15rem" : "0rem 0rem 0rem 0rem" &&
         margin === "0-0-0-1" ? "0rem 0rem 0rem 1rem" : "0rem 0rem 0rem 0rem" &&
         margin === "3-0-0-0" ? "3rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
         margin === "5-0-0-0" ? "5rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&

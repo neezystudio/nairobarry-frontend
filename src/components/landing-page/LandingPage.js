@@ -37,7 +37,7 @@ function LandingPage() {
 
                 {/* Hero Content */}
                 <Wrapper
-                    margin="5-0-0-15"
+                    margin="10-0-0-15"
                 >
 
                     {/* New Series */}
