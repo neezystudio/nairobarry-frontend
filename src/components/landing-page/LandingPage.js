@@ -6,6 +6,8 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import { RecentActors } from '@material-ui/icons';
 import Sponsors from '../common/Sponsors';
 import OurTeam from '../common/OurTeam';
+import ContactForm from '../common/ContactForm';
+import Footer from '../common/Footer';
 
 function LandingPage() {
     const [mobileNav, setMobileNav] = useState(false);
@@ -198,9 +200,25 @@ function LandingPage() {
 
             {/* Our Team */}
             <Container
+                id="team"
                 margin="4-0-0-0"
             >
                 <OurTeam/>
+            </Container>
+
+            {/* Contact Form */}
+            <Container
+                id="contact-us"
+                margin="4-0-0-0"
+            >
+                <ContactForm/>
+            </Container>
+
+            {/* Footer */}
+            <Container
+                margin="4-0-0-0"
+            >
+                <Footer/>
             </Container>
         </Section>
     )
