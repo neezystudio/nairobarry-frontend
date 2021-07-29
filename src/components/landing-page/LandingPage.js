@@ -7,6 +7,7 @@ import { RecentActors } from '@material-ui/icons';
 import Sponsors from '../common/Sponsors';
 import OurTeam from '../common/OurTeam';
 import ContactForm from '../common/ContactForm';
+import Footer from '../common/Footer';
 
 function LandingPage() {
     const [mobileNav, setMobileNav] = useState(false);
@@ -211,6 +212,13 @@ function LandingPage() {
                 margin="4-0-0-0"
             >
                 <ContactForm/>
+            </Container>
+
+            {/* Footer */}
+            <Container
+                margin="4-0-0-0"
+            >
+                <Footer/>
             </Container>
         </Section>
     )

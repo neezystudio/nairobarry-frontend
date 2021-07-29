@@ -18,7 +18,8 @@ export const Container = styled.div`
     )};
     background: ${({background}) => (
         background === "Default" ? "#E50000" : "transparent" &&
-        background === "primary" ? "#313131" : "transparent"
+        background === "primary" ? "#313131" : "transparent" &&
+        background === "black" ? "black" : "transparent" 
     )};
     background-image: ${({backgroundImage}) => (
         backgroundImage === 'hero' ? "url(https://res.cloudinary.com/emacon-production/image/upload/v1627373022/Nairobarry/Untitled_1.44.1_il1dks.jpg)" : "none"
@@ -35,6 +36,7 @@ export const Container = styled.div`
     )};
     padding: ${({padding}) => (
         padding === "5-0-5-0" ? "5rem 0rem 5rem 0rem" : "0rem 0rem 0rem 0rem" &&
+        padding === "2-0-1-0" ? "2rem 0rem 1rem 0rem" : "0rem 0rem 0rem 0rem" &&
         padding === "0-4-0-4" ? "0rem 4rem 0rem 4rem" : "0rem 0rem 0rem 0rem" 
     )};
 `;
@@ -187,6 +189,19 @@ export const Link = styled.a`
     color: ${({color})  => (
         color === "white" ? "white" : "black"
     )};
+    margin: ${({margin}) => (
+        margin === "0-1-0-1" ? "0rem 1rem 0rem 1rem" : "0rem 0rem 0rem 0rem"
+    )};
+    text-decoration: none;
+    cursor: pointer !important;
+    &:hover {
+        text-decoration: ${({decoration}) => (
+            decoration ? "underline !important" : "none !important"
+        )};
+        color: ${({hoverColor}) => (
+            hoverColor === "Default" ? "#E50000 !important" : "white !important"
+        )};
+    }
 `;
 
 export const Form = styled.form`
