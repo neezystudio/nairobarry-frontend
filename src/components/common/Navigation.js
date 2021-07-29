@@ -3,7 +3,7 @@ import { MenuData } from '../../data/MenuData'
 import { Buttons, Column, Container, Image, Link, MenuBars, Rows, ScrollLinks, Wrapper } from '../styled-components/StyledComponents'
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 
-function Navigation({ toggle }) {
+function Navigation({ toggle, background }) {
     const [navbar, setNavbar] = useState(false);
 
     const changeBackground = () => {
@@ -19,7 +19,7 @@ function Navigation({ toggle }) {
     return (
         <Container
             display="flex"
-            background={navbar ? 'black' : ''}
+            background={background === "black" || navbar ? 'black' : ''}
             padding="1-0-1-0"
             position="fixed"
             height="12vh"
