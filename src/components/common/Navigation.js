@@ -22,7 +22,7 @@ function Navigation({ toggle }) {
             background={navbar ? 'black' : ''}
             padding="1-0-1-0"
             position="fixed"
-            height="14vh"
+            height="12vh"
             zIndex="1000"
         >
             {/* Navigation Mobile Optimization */}

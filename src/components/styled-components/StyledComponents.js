@@ -9,7 +9,7 @@ export const Section = styled.section`
 
 export const Container = styled.div`
     height: ${({height}) => (
-        height === "14vh" ? "14vh" : "100%" &&
+        height === "12vh" ? "12vh" : "100%" &&
         height === "90vh" ? "75vh" : "100%" &&
         height === "9px" ? "9px" : "100%"
     )};
