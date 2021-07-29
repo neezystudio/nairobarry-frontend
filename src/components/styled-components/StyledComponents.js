@@ -14,6 +14,7 @@ export const Container = styled.div`
     )};
     width: ${({width}) => (
         width === "60px" ? "60px" : "100%" &&
+        width === "100px" ? "100px" : "100%" &&
         width === "80px" ? "180px" : "100%"
     )};
     background: ${({background}) => (
@@ -58,7 +59,8 @@ export const Wrapper = styled.div`
         margin === "5-0-0-15" ? "5rem 0rem 0rem 15rem" : "0rem 0rem 0rem 0rem" &&
         margin === "0-0-0-1" ? "0rem 0rem 0rem 1rem" : "0rem 0rem 0rem 0rem" &&
         margin === "3-0-0-0" ? "3rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
-        margin === "5-0-0-0" ? "5rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
+        margin === "5-0-0-0" ? "5rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
+        margin === "8-0-0-0" ? "8rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
     )};
     padding: ${({padding}) => (
         padding === "0-1-0-1" ? "0rem 1rem 0rem 1rem" : "none"
