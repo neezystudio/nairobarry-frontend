@@ -8,6 +8,7 @@ import Sponsors from '../common/Sponsors';
 import OurTeam from '../common/OurTeam';
 import ContactForm from '../common/ContactForm';
 import Footer from '../common/Footer';
+import { Link } from 'react-router-dom';
 
 function LandingPage() {
     const [mobileNav, setMobileNav] = useState(false);
@@ -112,24 +113,27 @@ function LandingPage() {
                     </Wrapper>
 
                     {/* Watch Movie Button */}
-                    <Buttons
-                        background="Default"
-                        hoverBackground="Default"
-                        hoverBorder="Default"
-                        padding="1rem 2rem 1rem 2rem"
-                        margin="3-0-0-0" 
-                    >
-                        <Wrapper display="flex">
-                            <PlayArrowIcon/> 
-                            <Placeholder 
-                                color="white"
-                                fontWeight="bold"
-                            >
-                                PLAY MOVIE
-                            </Placeholder>   
-                        </Wrapper>
-                        
-                    </Buttons>
+                    <Link to="/streaming">
+                       <Buttons
+                            background="Default"
+                            hoverBackground="Default"
+                            hoverBorder="Default"
+                            padding="1rem 2rem 1rem 2rem"
+                            margin="3-0-0-0" 
+                        >
+                            <Wrapper display="flex">
+                                <PlayArrowIcon/> 
+                                <Placeholder 
+                                    color="white"
+                                    fontWeight="bold"
+                                >
+                                    PLAY MOVIE
+                                </Placeholder>   
+                            </Wrapper>
+                            
+                        </Buttons> 
+                    </Link>
+                    
 
                 </Wrapper>
                 
