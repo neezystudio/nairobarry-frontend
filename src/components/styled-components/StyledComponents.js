@@ -65,6 +65,7 @@ export const Wrapper = styled.div`
     margin: ${({margin}) => (
         margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
         margin === "1.5-0-0-0" ? "1.5rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
+        margin === "1.5-0-3-0" ? "1.5rem 0rem 3rem 0rem" : "0rem 0rem 0rem 0rem" &&
         margin === "5-0-0-15" ? "5rem 0rem 0rem 15rem" : "0rem 0rem 0rem 0rem" &&
         margin === "10-0-0-15" ? "10rem 0rem 0rem 15rem" : "0rem 0rem 0rem 0rem" &&
         margin === "0-0-0-1" ? "0rem 0rem 0rem 1rem" : "0rem 0rem 0rem 0rem" &&
@@ -86,6 +87,7 @@ export const Wrapper = styled.div`
 export const Image = styled.img`
     width: ${({width}) => (
         width === "50px" ? "80px" : "100%" &&
+        width === "216px" ? "216px" : "100%" &&
         width === "416px" ? "416px" : "100%"
     )};
     height: ${({height}) => (
@@ -93,6 +95,7 @@ export const Image = styled.img`
         height === "50px" ? "80px" : "100%" &&
         height === "100px" ? "150px" : "100%" &&
         height === "180px" ? "230px" : "100%" &&
+        height === "239px" ? "239px" : "100%" &&
         height === "439px" ? "439px" : "100%"
     )};
     margin: ${({margin}) => (
@@ -113,6 +116,7 @@ export const Rows = styled(Row)`
 `;
 
 export const Column = styled(Col)`
+    // width: 100% !important;
 `;
 
 export const Buttons = styled(Button)`
@@ -128,6 +132,9 @@ export const Buttons = styled(Button)`
     margin: ${({margin}) => (
         margin === "3-0-0-0" ? "3rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem" &&
         margin === "2-0-0-1" ? "1rem 0rem 0rem 1rem" : "0rem 0rem 0rem 0rem"
+    )};
+    width: ${({width}) => (
+        width === "100%" ? "100%" : ""
     )};
     transition: .3s all;
 
@@ -166,9 +173,29 @@ export const Title2 = styled.h2`
     )};
 `;
 
-export const Title3 = styled.h3``;
+export const Title3 = styled.h3`
+    color: ${({color}) => (
+        color === "whitesmoke" ? "whitesmoke" : "black"
+    )};
+    font-weight: ${({fontWeight}) => (
+        fontWeight === 'bold' ? 'bold' : ''
+    )};
+    margin: ${({margin}) => (
+        margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
+    )};
+`;
 
-export const Title4 = styled.h4``;
+export const Title4 = styled.h4`
+    color: ${({color}) => (
+        color === "whitesmoke" ? "whitesmoke" : "black"
+    )};
+    font-weight: ${({fontWeight}) => (
+        fontWeight === 'bold' ? 'bold' : ''
+    )};
+    margin: ${({margin}) => (
+        margin === "1-0-0-0" ? "1rem 0rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
+    )};
+`;
 
 export const Placeholder = styled.p`
     background: ${({background}) => (
@@ -194,15 +221,22 @@ export const Placeholder = styled.p`
         padding === "0.1-0.2-0.1-0.2" ? "0.1rem 0.2rem 0.1rem 0.2rem" : "0rem 0rem 0rem 0rem" &&
         padding === "0-2-0-0" ? "0rem 8rem 0rem 0rem" : "0rem 0rem 0rem 0rem"
     )};
+    text-align: ${({textAlign}) => (
+        textAlign === "center" ? "center" : ""
+    )}
     
 `;
 
 export const Link = styled.a`
     color: ${({color})  => (
-        color === "white" ? "white" : "black"
+        color === "white" ? "white" : "black" &&
+        color === "red" ? "#E50000" : "black"
     )};
     margin: ${({margin}) => (
         margin === "0-1-0-1" ? "0rem 1rem 0rem 1rem" : "0rem 0rem 0rem 0rem"
+    )};
+    width: ${({width}) => (
+        width === "100%" ? "100%" : ""
     )};
     text-decoration: none;
     cursor: pointer !important;
@@ -211,13 +245,16 @@ export const Link = styled.a`
             decoration ? "underline !important" : "none !important"
         )};
         color: ${({hoverColor}) => (
-            hoverColor === "Default" ? "#E50000 !important" : "white !important"
+            hoverColor === "Default" ? "#E50000 !important" : "white !important" &&
+            hoverColor === "primary" ? "#313131 !important" : "white !important"
         )};
     }
 `;
 
 export const Form = styled.form`
-    padding: 0rem 8rem;
+    padding: ${({padding}) => (
+        padding === "0-8" ? "0rem 2rem" : "0rem 8rem"
+    )};
 `;
 
 
