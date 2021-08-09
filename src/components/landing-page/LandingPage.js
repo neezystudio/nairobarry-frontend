@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 function LandingPage() {
     const [mobileNav, setMobileNav] = useState(false);
-    const [token, setToken] = useState(true);
+    const [token, setToken] = useState(false);
 
     const toggle = () => {
         setMobileNav(!mobileNav)
