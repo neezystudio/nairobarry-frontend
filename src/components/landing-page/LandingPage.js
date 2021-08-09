@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import MobileNavigation from '../common/MobileNavigation';
 import Navigation from '../common/Navigation'
 import { Buttons, Column, Container, Image, Placeholder, Rows, Section, Title1, Title2, Wrapper } from '../styled-components/StyledComponents'
@@ -9,6 +10,7 @@ import OurTeam from '../common/OurTeam';
 import ContactForm from '../common/ContactForm';
 import Footer from '../common/Footer';
 import { Link } from 'react-router-dom';
+import { Config } from '../../helpers/Config';
 
 function LandingPage() {
     const [mobileNav, setMobileNav] = useState(false);
@@ -17,6 +19,17 @@ function LandingPage() {
     const toggle = () => {
         setMobileNav(!mobileNav)
     }
+
+    useEffect(() => {
+        axios.get('BASE_URL/user', Config)
+        .then(res => {
+            console.log(res);
+            setToken(true);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    })
 
     return (
         <Section>
