@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 
 function LandingPage() {
     const [mobileNav, setMobileNav] = useState(false);
+    const [token, setToken] = useState(true);
 
     const toggle = () => {
         setMobileNav(!mobileNav)
@@ -20,124 +21,142 @@ function LandingPage() {
     return (
         <Section>
             {/* Section 1 - Hero Section */}
-            <Container
-                id="home"
-                height="90vh"
-                backgroundImage="hero"
-                backgroundPositionX= "-2rem"
-                backgroundPositionY= "-2rem"
-            >   
-                
-                {/* Navigation */}
-                <Wrapper
-                    display="flex"
-                >
-                  <Navigation toggle={toggle}/>  
-                  {/* <MobileNavigation isOpen={mobileNav} toggle={toggle}/> */}
-                </Wrapper>
-
-                {/* Hero Content */}
-                <Wrapper
-                    margin="10-0-0-15"
-                >
-
-                    {/* New Series */}
-                    <Wrapper>
-                       <Placeholder
-                            color="whitesmoke"
-                            fontWeight="bold"
-                        >
-                            NEW SERIES
-                        </Placeholder> 
-                        <Container
-                            width="60px"
-                            height="9px"
-                            background="Default"
-                            margin="1-0-0-0" 
-                        />
-                    </Wrapper>
-
-                    {/* Movie Title */}
-                    <Title1
-                        color="white"
-                        fontWeight="bold"
-                        margin="2-0-0-0" 
-                    >
-                        NAIROBARRY
-                    </Title1>
-                    
-                    {/* Movie Year, Quality and Type */}
-                    <Wrapper
-                        display="flex"
-                        justifyContent="start"
-                    >
-                        {/* Movie Year */}
-                        <Placeholder 
-                            color="whitesmoke"
-                            margin="1.5-0-0-0"
-                        >
-                            2021
-                        </Placeholder>
-
-                        {/* Quality */}
-                        <Wrapper
-                            display="flex"
-                            margin="0-0-0-1"
-                        >
-                            <Placeholder 
-                                color="whitesmoke"
-                                margin="1-0-0-0"
-                                border={true}
-                                padding="0.1-0.2-0.1-0.2"
-                            >
-                                1080
-                            </Placeholder>
-                            <Placeholder 
-                                background="white"
-                                margin="1-0-0-0"
-                                border={true}
-                                padding="0.1-0.2-0.1-0.2"
-                                fontWeight="bold"
-                            >
-                                HD
-                            </Placeholder>
+            {
+                token ? (
+                    <React.Fragment>
+                         {/* Navigation */}
+                        <Wrapper display="flex">
+                            <Navigation background="black"/>
                         </Wrapper>
 
-                        {/* Type */}
-                        <Placeholder 
-                            color="whitesmoke"
-                            margin="1.5-0-0-1"
+                        {/* Streaming Section */}
+                        <Wrapper id="home">
+                            <iframe width="100%" height="700" src="https://www.youtube.com/embed/DyKQ7qtTJag" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </Wrapper>
+                    </React.Fragment>
+                ) : 
+                ( 
+                    <Container
+                        id="home"
+                        height="90vh"
+                        backgroundImage="hero"
+                        backgroundPositionX= "-2rem"
+                        backgroundPositionY= "-2rem"
+                    >   
+                        
+                        {/* Navigation */}
+                        <Wrapper
+                            display="flex"
                         >
-                            Drama/ Action 
-                        </Placeholder>
-                    </Wrapper>
+                        <Navigation toggle={toggle}/>  
+                        {/* <MobileNavigation isOpen={mobileNav} toggle={toggle}/> */}
+                        </Wrapper>
 
-                    {/* Watch Movie Button */}
-                    <Link to="/streaming">
-                       <Buttons
-                            background="Default"
-                            hoverBackground="Default"
-                            hoverBorder="Default"
-                            padding="1rem 2rem 1rem 2rem"
-                            margin="3-0-0-0" 
+                        {/* Hero Content */}
+                        <Wrapper
+                            margin="10-0-0-15"
                         >
-                            <Wrapper display="flex">
-                                <PlayArrowIcon/> 
-                                <Placeholder 
-                                    color="white"
+
+                            {/* New Series */}
+                            <Wrapper>
+                            <Placeholder
+                                    color="whitesmoke"
                                     fontWeight="bold"
                                 >
-                                    PLAY MOVIE
-                                </Placeholder>   
+                                    NEW SERIES
+                                </Placeholder> 
+                                <Container
+                                    width="60px"
+                                    height="9px"
+                                    background="Default"
+                                    margin="1-0-0-0" 
+                                />
                             </Wrapper>
-                            
-                        </Buttons> 
-                    </Link>
-                    
 
-                </Wrapper>
-                
-            </Container>
+                            {/* Movie Title */}
+                            <Title1
+                                color="white"
+                                fontWeight="bold"
+                                margin="2-0-0-0" 
+                            >
+                                NAIROBARRY
+                            </Title1>
+                            
+                            {/* Movie Year, Quality and Type */}
+                            <Wrapper
+                                display="flex"
+                                justifyContent="start"
+                            >
+                                {/* Movie Year */}
+                                <Placeholder 
+                                    color="whitesmoke"
+                                    margin="1.5-0-0-0"
+                                >
+                                    2021
+                                </Placeholder>
+
+                                {/* Quality */}
+                                <Wrapper
+                                    display="flex"
+                                    margin="0-0-0-1"
+                                >
+                                    <Placeholder 
+                                        color="whitesmoke"
+                                        margin="1-0-0-0"
+                                        border={true}
+                                        padding="0.1-0.2-0.1-0.2"
+                                    >
+                                        1080
+                                    </Placeholder>
+                                    <Placeholder 
+                                        background="white"
+                                        margin="1-0-0-0"
+                                        border={true}
+                                        padding="0.1-0.2-0.1-0.2"
+                                        fontWeight="bold"
+                                    >
+                                        HD
+                                    </Placeholder>
+                                </Wrapper>
+
+                                {/* Type */}
+                                <Placeholder 
+                                    color="whitesmoke"
+                                    margin="1.5-0-0-1"
+                                >
+                                    Drama/ Action 
+                                </Placeholder>
+                            </Wrapper>
+
+                            {/* Watch Movie Button */}
+                            <Link to="/streaming">
+                            <Buttons
+                                    background="Default"
+                                    hoverBackground="Default"
+                                    hoverBorder="Default"
+                                    padding="1rem 2rem 1rem 2rem"
+                                    margin="3-0-0-0" 
+                                >
+                                    <Wrapper display="flex">
+                                        <PlayArrowIcon/> 
+                                        <Placeholder 
+                                            color="white"
+                                            fontWeight="bold"
+                                        >
+                                            PLAY MOVIE
+                                        </Placeholder>   
+                                    </Wrapper>
+                                    
+                                </Buttons> 
+                            </Link>
+                            
+
+                        </Wrapper>
+                        
+                    </Container>
+                )
+            }
+            
 
             {/* Section 2 - About Section */}
             <Container
