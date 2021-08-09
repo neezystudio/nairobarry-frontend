@@ -29,7 +29,7 @@ function LandingPage() {
         .catch(err => {
             console.log(err);
         })
-    })
+    }, [])
 
     return (
         <Section>
