@@ -1,3 +1,7 @@
+## Preview
+![Preview](https://www.figma.com/proto/VUWkhOr8T05PA8xYKDIThA/NAIROBARRY-STREAMING-SITE?node-id=2%3A2&scaling=min-zoom&page-id=0%3A1)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
