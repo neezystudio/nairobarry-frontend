@@ -122,7 +122,7 @@ function AuthenticationModal({ show, onHide, type }) {
                                         <Title4 fontWeight='bold'>SIGN IN TO CONTINUE</Title4>
                                     </Wrapper>
 
-                                    {/* Sign In Form */}
+                                    {/*//TODO: Sign In Form */}
                                     <Wrapper display="flex">
                                         <Form 
                                             padding="0-8"
@@ -253,7 +253,9 @@ function AuthenticationModal({ show, onHide, type }) {
                                     </Wrapper>
                                     <Wrapper display="flex" margin="1.5-0-0-0">
                                         <Link width="100%">
-                                            <Buttons background="Default" width="100%" hoverBackground="Default">Sign In with Google</Buttons>
+                                            {/* //TODO:user authentication */}
+                                            <Buttons background="Default" width="100%" hoverBackground="Default">
+                                                Sign In with Google</Buttons>
                                         </Link>
                                     </Wrapper>
                                     <Wrapper display="flex" margin="1-0-0-0">
@@ -310,7 +312,7 @@ function AuthenticationModal({ show, onHide, type }) {
                                         <Title4 fontWeight='bold'>SIGN UP TO CONTINUE</Title4>
                                     </Wrapper>
 
-                                    {/* Sign Up Form */}
+                                    {/*//TODO: Sign Up Form */}
                                     <Wrapper display="flex">
                                         <Form 
                                             padding="0-8"
