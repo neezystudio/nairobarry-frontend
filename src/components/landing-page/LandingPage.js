@@ -92,7 +92,7 @@ function LandingPage() {
                                 fontWeight="bold"
                                 margin="2-0-0-0" 
                             >
-                                NAIROBARRY
+                                NAIROBERRY
                             </Title1>
                             
                             {/* Movie Year, Quality and Type */}

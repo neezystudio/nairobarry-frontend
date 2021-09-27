@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef} from 'react'
 import axios from 'axios'
 import { Backdrop, Checkbox, CircularProgress, FormControlLabel, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -6,6 +6,7 @@ import { Modal, Spinner } from 'react-bootstrap'
 import { Buttons, Column, Form, Image, Link, Placeholder, Rows, Title2, Title3, Title4, Wrapper } from '../styled-components/StyledComponents';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import CloseIcon from '@material-ui/icons/Close';
+import { auth } from '../../firebase';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
 
 function AuthenticationModal({ show, onHide, type }) {
     const classes = useStyles();
-
+    const emailRef =useRef(null);
+    const passwordRef =useRef(null);
     const [modalType, setModalType] = useState(type);
     const [name, setName] = useState();
     const [email, setEmail] = useState();
@@ -62,7 +64,16 @@ function AuthenticationModal({ show, onHide, type }) {
     const handleSignUp = (e) => {
         e.preventDefault();
         setSignUpLoading(true);
+        
 
+        auth.createUserWithEmailAndPassword(
+            emailRef.current.value,
+            passwordRef.current.value
+        ).then((authUser) =>{
+            console.log(authUser)
+        }).catch(error =>{
+            alert(error.message)
+        });
         const signUpData = {
             name: name,
             email: email,
@@ -71,14 +82,6 @@ function AuthenticationModal({ show, onHide, type }) {
             privacyPolicy: privacyPolicy
         }
 
-        axios.post('BASE_URL/signup', signUpData)
-        .then(res => {
-            console.log(res);
-        })
-        .catch(err => {
-            console.log(err);
-            setError(true);
-        })
     }
 
     return (
@@ -111,7 +114,7 @@ function AuthenticationModal({ show, onHide, type }) {
                                 <Column md={7}>
                                     <Wrapper display="flex">
                                         <Image
-                                            src="https://res.cloudinary.com/emacon-production/image/upload/v1627376803/Nairobarry/Samchi_Systems_2_B_dy8zvf.jpg"
+                                            src="images/avant.png"
                                             alt="Avant Tv"
                                             width="50px"
                                             height="50px"
@@ -325,14 +328,14 @@ function AuthenticationModal({ show, onHide, type }) {
                                                 defaultValue="Hello World"
                                                 helperText="Incorrect entry."
                                             /> */}
-                                            <TextField
+                                            {/* <TextField
                                                 fullWidth
                                                 required
                                                 type="text"
                                                 label="Name"
                                                 value={name}
                                                 onChange={e => setName(e.target.value)}
-                                            />
+                                            /> */}
                                             <TextField
                                                 fullWidth
                                                 required
@@ -341,14 +344,14 @@ function AuthenticationModal({ show, onHide, type }) {
                                                 value={email}
                                                 onChange={e => setEmail(e.target.value)}
                                             />
-                                            <TextField
+                                            {/* <TextField
                                                 fullWidth
                                                 required
                                                 type="text"
                                                 label="Phone Number"
                                                 value={phoneNumber}
                                                 onChange={e => setPhoneNumber(e.target.value)}
-                                            />
+                                            /> */}
                                             <TextField
                                                 fullWidth
                                                 required

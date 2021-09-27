@@ -48,7 +48,7 @@ function Navigation({ toggle, background }) {
                             display="flex"
                         >
                             <Image
-                                src="https://res.cloudinary.com/emacon-production/image/upload/v1627376803/Nairobarry/Samchi_Systems_2_B_dy8zvf.jpg"
+                                src="images/avant.png"
                                 alt="Avant Tv"
                                 width="50px"
                                 height="50px"
