@@ -386,7 +386,7 @@ function AuthenticationModal({ show, onHide, type }) {
                                                     background="Default"
                                                     hoverBackground="Default" 
                                                     width="100%"
-                                                    onclick={handleSignUp}
+                                                    onclick={register}
                                                 >
                                                     {
                                                         signUpLoading ? (
