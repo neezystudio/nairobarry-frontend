@@ -40,7 +40,7 @@ function AuthenticationModal({ show, onHide, type }) {
         setPrivacyPolicy(!privacyPolicy);
     }
 
-    const handleSignIn = (e) => {
+    const signIn = (e) => {
         e.preventDefault();
         setSignInLoading(true);
 
@@ -61,7 +61,7 @@ function AuthenticationModal({ show, onHide, type }) {
         })
     }
 
-    const handleSignUp = (e) => {
+    const register = (e) => {
         e.preventDefault();
         setSignUpLoading(true);
         
@@ -205,7 +205,7 @@ function AuthenticationModal({ show, onHide, type }) {
                                                     background="Default"
                                                     hoverBackground="Default" 
                                                     width="100%"
-                                                    onClick={handleSignIn}
+                                                    onClick={signIn}
                                                 >
                                                     {
                                                         signInLoading ? (
