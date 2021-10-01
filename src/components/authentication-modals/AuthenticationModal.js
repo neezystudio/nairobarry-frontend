@@ -326,6 +326,7 @@ function AuthenticationModal({ show, onHide, type }) {
                         <Rows>
                                 <Column md={7}>
                                     <Wrapper display="flex">
+                                        {/* //TODO:PLACE THEAVANT LOGOHERE  */}
                                         <Image
                                             src="https://res.cloudinary.com/emacon-production/image/upload/v1627376803/Nairobarry/Samchi_Systems_2_B_dy8zvf.jpg"
                                             alt="Avant Tv"
@@ -483,6 +484,7 @@ function AuthenticationModal({ show, onHide, type }) {
                         </Wrapper>
                                 
                             <Wrapper display="flex">
+                                {/* //TODO:place avant logo here  */}
                                 <Image
                                     src="https://res.cloudinary.com/emacon-production/image/upload/v1627376803/Nairobarry/Samchi_Systems_2_B_dy8zvf.jpg"
                                     alt="Avant Tv"
