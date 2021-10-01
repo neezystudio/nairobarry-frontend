@@ -1,24 +1,29 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LandingPage from './components/landing-page/LandingPage';
 import React, { useState } from 'react';
+import LoginScreen from "./screens/LoginScreen";
+
 
 function App() {
-  const [modalOpen, setModalOpen] = useState(false);
+  // const [modalOpen, setModalOpen] = useState(false);
   const user = null;
-  const handleModal = () => {
-    setModalOpen(!modalOpen);
-  }
+  // const handleModal = () => {
+  //   setModalOpen(!modalOpen);
+  // }
   return (
-    <Router>
+   <div className="app">
+      <Router>
      {!user ?(
-       handleModal
-     ):
-     (
-<Switch>
-<Route path="/" exact component={LandingPage} />
-</Switch>
+      <LoginScreen/>
+     ):(
+      <Switch>
+          <Route exact path="/">
+          <LandingPage/>
+            </Route>
+      </Switch>
      )}
     </Router>
+   </div>
   );
 }
 
