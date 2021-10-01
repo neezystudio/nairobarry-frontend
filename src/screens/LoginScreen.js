@@ -7,7 +7,8 @@ function LoginScreen(){
     const handleModal = () => {
         setModalOpen(!modalOpen);
     }
-    return <div className= "loginScreen">
+    return (
+        <div className= "loginScreen">
     <div className= "loginScreen__background">
         <img 
         className="loginScreen__logo"
@@ -18,7 +19,16 @@ function LoginScreen(){
                                 >
                                 <AccountCircleOutlinedIcon/> Sign In/ Sign Up  
                                 </button>
+         <div className= "loginScreen__gradient"/>                       
     </div>
-    </div>;
+    <div className= "loginScreen__body">
+        <>
+        <h1>
+       Unlimited films,TV programmes and more
+        </h1>
+        </>
+    </div>
+    </div>
+    );
 }
 export default LoginScreen;
