@@ -1,6 +1,9 @@
 .loginScreen{
     position:relative;
     height: 100%;
+    background: url('https://res.cloudinary.com/emacon-production/image/upload/v1627463113/Nairobarry/Untitled_1.75.1_olm98i.jpg')
+    center no-repeat;
+    background-size: cover;
 }
 .loginScreen__logo{
     position: fixed;
@@ -8,6 +11,33 @@
     width: 150px;
     object-fit: contain;
     padding-left: 20px;
+}
+.loginScreen__body > h1{
+    font-size: 3.125rem;
+    margin-bottom: 20px;
+    
+}
+.loginScreen__body{
+    position: absolute;
+    top: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    z-index: 1;
+    color: #fff;
+    padding: 20px;
+}
+.loginScreen__gradient{
+    width: 100%;
+    z-index: 1;
+    height:100vh;
+    background: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0,
+        rgba(0, 0, 0, 0.4) 60%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
 }
 
 .loginScreen__button{
