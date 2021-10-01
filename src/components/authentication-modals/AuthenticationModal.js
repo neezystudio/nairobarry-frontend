@@ -63,7 +63,7 @@ function AuthenticationModal({ show, onHide, type }) {
 
     const register = (e) => {
         e.preventDefault();
-        setSignUpLoading(true);
+        // setSignUpLoading(true);
         
 
         auth.createUserWithEmailAndPassword(
@@ -74,13 +74,13 @@ function AuthenticationModal({ show, onHide, type }) {
         }).catch(error =>{
             alert(error.message)
         });
-        const signUpData = {
-            name: name,
-            email: email,
-            phoneNumber: phoneNumber,
-            password: password,
-            privacyPolicy: privacyPolicy
-        }
+        // const signUpData = {
+        //     name: name,
+        //     email: email,
+        //     phoneNumber: phoneNumber,
+        //     password: password,
+        //     privacyPolicy: privacyPolicy
+        // }
 
     }
 
@@ -145,6 +145,7 @@ function AuthenticationModal({ show, onHide, type }) {
                                                 ) : (
                                                     <TextField
                                                         fullWidth
+                                                        ref={emailRef}
                                                         type="text"
                                                         label="Email Address"
                                                         value={email}
@@ -167,6 +168,7 @@ function AuthenticationModal({ show, onHide, type }) {
                                                 ) : (
                                                     <TextField
                                                         fullWidth
+                                                        ref= {passwordRef}
                                                         type="password"
                                                         label="Password"
                                                         value={password}
@@ -219,6 +221,28 @@ function AuthenticationModal({ show, onHide, type }) {
                                                     }
                                                     
                                                 </Buttons>
+                                                
+                                            </Wrapper>
+                                            <Wrapper display="flex" margin="1-0-0-0">
+                                                <Buttons 
+                                                    background="Default"
+                                                    hoverBackground="Default" 
+                                                    width="100%"
+                                                    onClick={register}
+                                                >
+                                                    {
+                                                        signInLoading ? (
+                                                            <Spinner animation="border" variant="light" />
+                                                        ) :
+                                                        (
+                                                            <React.Fragment>
+                                                                Sign Up
+                                                            </React.Fragment>
+                                                        )
+                                                    }
+                                                    
+                                                </Buttons>
+                                                
                                             </Wrapper>
                                         </Form>
                                     </Wrapper>
@@ -232,8 +256,7 @@ function AuthenticationModal({ show, onHide, type }) {
                                                 decoration={true}
                                                 hoverColor="primary"
                                                 onClick={() => {
-                                                    setModalType("signUp");
-                                                    setSignInLoading(false);
+                                                    
                                                 }}
                                             >
                                                 Sign Up
