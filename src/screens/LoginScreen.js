@@ -1,4 +1,5 @@
 import React ,{ useState }  from 'react';
+import AuthenticationModal from '../components/authentication-modals/AuthenticationModal'
 import './LoginScreen.css';
 import { Buttons, Column, Container, Image, Link, MenuBars, Rows, ScrollLinks, Wrapper } from '../components/styled-components/StyledComponents'
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
@@ -7,6 +8,11 @@ function LoginScreen(){
     const [navbar, setNavbar] = useState(false);
     const handleModal = () => {
         setModalOpen(!modalOpen);
+    }
+    const clickHandle = event => {
+        event.preventDefault()
+        console.log('You clicked the button');
+        // {handleModal}
     }
     const changeBackground = () => {
         if(window.scrollY >= 80) {
@@ -32,6 +38,11 @@ function LoginScreen(){
                                 >
                                 <AccountCircleOutlinedIcon/> Sign In/ Sign Up  
                                 </button>
+                                <AuthenticationModal
+                show={modalOpen}
+                onHide={handleModal}
+                type={"signIn"}
+            />
          <div className= "loginScreen__gradient"/>                       
     </div>
     <div className= "loginScreen__body">
@@ -47,10 +58,16 @@ function LoginScreen(){
             <form>
                 <input type="email" placeholder="Email Address" />
                 <button className="loginScreen__getStarted"
-                onClick={handleModal}
+                onClick={clickHandle, handleModal}
+                
                 >
                     GET STARTED
                 </button>
+                <AuthenticationModal
+                show={modalOpen}
+                onHide={handleModal}
+                type={"signIn"}
+                />
             </form>
         </div>
         </>
