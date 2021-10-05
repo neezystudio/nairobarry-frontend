@@ -19,7 +19,7 @@ export const Container = styled.div`
         width === "80px" ? "180px" : "100%"
     )};
     background: ${({background}) => (
-        background === "Default" ? "#E50000" : "transparent" &&
+        background === "Default" ? "#f07437" : "transparent" &&
         background === "primary" ? "#313131" : "transparent" &&
         background === "black" ? "black" : "transparent" 
     )};
@@ -121,7 +121,7 @@ export const Column = styled(Col)`
 
 export const Buttons = styled(Button)`
     background: ${({background}) => (
-        background === "Default" ? "#E50000" : "transparent"
+        background === "Default" ? "#f07437" : "transparent"
     )};
     border: ${({border}) => (
         border ? "1px Solid #E50000" : "none"

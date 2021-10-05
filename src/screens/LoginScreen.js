@@ -17,7 +17,11 @@ function LoginScreen(){
     }
     window.addEventListener('scroll', changeBackground);
     return (
-        <div className= "loginScreen">
+        <div className= "loginScreen"
+        >
+            {/* <img 
+        className="loginScreen__logo"
+        src= "images/avant.png" alt=""/> */}
     <div className= "loginScreen__background">
         <img 
         className="loginScreen__logo"

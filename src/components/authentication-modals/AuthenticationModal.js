@@ -268,7 +268,7 @@ function AuthenticationModal({ show, onHide, type }) {
                                 <Column md={4}>
                                     <Wrapper display="flex">
                                         <Image
-                                            src="https://res.cloudinary.com/emacon-production/image/upload/v1627463113/Nairobarry/Untitled_1.75.1_olm98i.jpg"
+                                            src="images/naiposter.png"
                                             width="216px"
                                             height="239px"
                                             margin="3-0-0-0" 
