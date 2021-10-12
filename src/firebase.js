@@ -24,14 +24,14 @@ var firebaseApp =firebase.initializeApp( {
 
 var db = firebaseApp.firestore();
 var auth = firebase.auth();
-var provider= new firebase.auth.GoogleAuthProvider();
-var provider= new firebase.auth.FacebookAuthProvider();
+var googleprovider= new firebase.auth.GoogleAuthProvider();
+var facebookprovider= new firebase.auth.FacebookAuthProvider();
 
-export const signIn = e => {
-  e.preventDefault();
-  auth.signInWithPopup(provider)
-  .catch(error =>alert(error.message))
-};
+// export const signIn = e => {
+//   e.preventDefault();
+//   auth.signInWithPopup(provider)
+//   .catch(error =>alert(error.message))
+// };
 
-export {auth, provider};
+export {auth, googleprovider, facebookprovider};
 export default {db};

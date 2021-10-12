@@ -9,7 +9,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import CloseIcon from '@material-ui/icons/Close';
 import './AuthenticationModal.css'
 // import { auth } from '../../firebase';
-import firebase, {auth, provider,FacebookAuthProvider} from '../../firebase'
+import firebase, {auth, googleprovider,facebookprovider} from '../../firebase'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,19 +37,29 @@ function AuthenticationModal({ show, onHide, type }) {
 
     const signInWithGoogle = e => {
         e.preventDefault();
-        auth.signInWithPopup(provider)
+        auth.signInWithPopup(googleprovider).then(user =>{
+            alert("welcome 👍 ");
+            console.log(user)
+        })
         .catch(error =>alert(error.message))
     };
-
-    const signInWithFacebook = () =>{
-        var provider = new firebase.auth.FacebookAuthProvider();
-        provider.addScope('user_birthday');
-        firebase.auth().signInWithPopup(provider).then((result)=>{
-          console.log('result', result);
-        }).catch((error)=>{
-          console.log('error', error);
+    const signInWithFacebook = e => {
+        e.preventDefault();
+        auth.signInWithPopup(facebookprovider).then(user =>{
+            alert("welcome 👍 ");
+            console.log(user)
         })
-    }
+        .catch(error =>alert(error.message))
+    };
+    // const signInWithFacebook = () =>{
+    //     var provider = new firebase.auth.FacebookAuthProvider();
+    //     provider.addScope('user_birthday');
+    //     firebase.auth().signInWithPopup(provider).then((result)=>{
+    //       console.log('result', result);
+    //     }).catch((error)=>{
+    //       console.log('error', error);
+    //     })
+    // }
     const handleRememberMe = () => {
         setRememberMe(!rememberMe);
     }
@@ -61,25 +71,18 @@ function AuthenticationModal({ show, onHide, type }) {
     const signIn = (e) => {
         e.preventDefault();
         setSignInLoading(true);
-
-        const signInData = {
-            email: email,
-            password: password
-        }
-
-        axios.post('BASE_URL/login', signInData)
-        .then(res => {
-            console.log(res);
-            setSignInLoading(false);
-            localStorage.setItem('token', res.data.token)
-        })
-        .catch(err => {
-            console.log(err);
-            setError(true);
-        })
+        auth.signInWithEmailAndPassword(
+            emailRef.current.value,
+            passwordRef.current.value
+        ).then(user =>{
+            alert("welcome 👍 ");
+            console.log(user)
+        }).catch(error =>{
+            alert(error.message)
+        });
     }
 
-    const register = (e) => {
+    const signUp = (e) => {
         e.preventDefault();
         // setSignUpLoading(true);
         
@@ -87,8 +90,9 @@ function AuthenticationModal({ show, onHide, type }) {
         auth.createUserWithEmailAndPassword(
             emailRef.current.value,
             passwordRef.current.value
-        ).then((authUser) =>{
-            console.log(authUser)
+        ).then(user =>{
+            alert("user created 👍 ");
+            console.log(user)
         }).catch(error =>{
             alert(error.message)
         });
@@ -146,25 +150,25 @@ function AuthenticationModal({ show, onHide, type }) {
                                     {/*//TODO: Sign In Form */}
                                    <div className="signin">
                                        <form action="">
-                                           <input type='email'/>
-                                           <input type='password'/>
-                                           <button>Sign In</button>
+                                           <input ref={emailRef}type='email'/>
+                                           <input ref={passwordRef}type='password'/>
+                                           <button onClick={signIn}>Sign In</button>
+                                           
                                        </form>
                                    </div>
                                     {/* Don't Have an Account */}
                                     <Wrapper display="flex" margin="1.5-0-3-0">
                                         <Placeholder>
-                                            {`Don't have an account? `}
+                                            {`Don't have an account? fill up your details and `}
                                             <Link
                                                 color="red"
                                                 decoration={true}
                                                 hoverColor="primary"
-                                                onClick={() => {
-                                                    setModalType("signUp")
-                                                }}
+                                                onClick={signUp}
                                             >
-                                                Sign Up
+                                                Sign Up Now
                                             </Link>
+                                            
                                         </Placeholder>
                                     </Wrapper>
                                     
@@ -317,7 +321,7 @@ function AuthenticationModal({ show, onHide, type }) {
                                                     background="Default"
                                                     hoverBackground="Default" 
                                                     width="100%"
-                                                    onclick={register}
+                                                    // onclick={register}
                                                 >
                                                     {
                                                         signUpLoading ? (
