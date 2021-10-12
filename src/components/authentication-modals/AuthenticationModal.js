@@ -5,8 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Spinner } from 'react-bootstrap'
 import { Buttons, Column, Form, Image, Link, Placeholder, Rows, Title2, Title3, Title4, Wrapper } from '../styled-components/StyledComponents';
 import FacebookIcon from '@material-ui/icons/Facebook';
+// import GoogleIcon from '@mui/icons-material/Google';
 import CloseIcon from '@material-ui/icons/Close';
-import { auth } from '../../firebase';
+import './AuthenticationModal.css'
+// import { auth } from '../../firebase';
+import firebase, {auth, provider,FacebookAuthProvider} from '../../firebase'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,8 +21,6 @@ const useStyles = makeStyles((theme) => ({
 
 function AuthenticationModal({ show, onHide, type }) {
     const classes = useStyles();
-    const emailRef =useRef(null);
-    const passwordRef =useRef(null);
     const [modalType, setModalType] = useState(type);
     const [name, setName] = useState();
     const [email, setEmail] = useState();
@@ -31,7 +32,24 @@ function AuthenticationModal({ show, onHide, type }) {
     const [signInLoading, setSignInLoading] = useState(false);
     const [signUpLoading, setSignUpLoading] = useState(false);
     const [error, setError] = useState(false)
+    const emailRef =useRef(null);
+    const passwordRef =useRef(null);
 
+    const signInWithGoogle = e => {
+        e.preventDefault();
+        auth.signInWithPopup(provider)
+        .catch(error =>alert(error.message))
+    };
+
+    const signInWithFacebook = () =>{
+        var provider = new firebase.auth.FacebookAuthProvider();
+        provider.addScope('user_birthday');
+        firebase.auth().signInWithPopup(provider).then((result)=>{
+          console.log('result', result);
+        }).catch((error)=>{
+          console.log('error', error);
+        })
+    }
     const handleRememberMe = () => {
         setRememberMe(!rememberMe);
     }
@@ -126,127 +144,13 @@ function AuthenticationModal({ show, onHide, type }) {
                                     </Wrapper>
 
                                     {/*//TODO: Sign In Form */}
-                                    <Wrapper display="flex">
-                                        <Form 
-                                            padding="0-8"
-                                        >
-                                            {/* Email Address */}
-                                            {
-                                                error ? (
-                                                    <TextField
-                                                        error
-                                                        fullWidth
-                                                        type="text"
-                                                        label="Email Address"
-                                                        defaultValue={email}
-                                                        helperText="Incorrect email."
-                                                        onChange={e => setError(false)}
-                                                    /> 
-                                                ) : (
-                                                    <TextField
-                                                        fullWidth
-                                                        ref={emailRef}
-                                                        type="text"
-                                                        label="Email Address"
-                                                        value={email}
-                                                        onChange={e => setEmail(e.target.value)}
-                                                    />
-                                                )
-                                            }
-                                            {/* Password */}
-                                            {
-                                                error ? (
-                                                    <TextField
-                                                        error
-                                                        fullWidth
-                                                        type="password"
-                                                        label="Password"
-                                                        defaultValue={password}
-                                                        helperText="Incorrect password."
-                                                        onChange={e => setError(false)}
-                                                    /> 
-                                                ) : (
-                                                    <TextField
-                                                        fullWidth
-                                                        ref= {passwordRef}
-                                                        type="password"
-                                                        label="Password"
-                                                        value={password}
-                                                        onChange={e => setPassword(e.target.value)}
-                                                    />
-                                                )
-                                            }
-                                            <Wrapper display="flex" justifyContent="start">
-                                                <Rows>
-                                                    <Column md={6}>
-                                                        <Wrapper margin="1-0-0-0">
-                                                            <FormControlLabel
-                                                                control={
-                                                                <Checkbox
-                                                                    checked={rememberMe}
-                                                                    onChange={handleRememberMe}
-                                                                    name="Remember Me"
-                                                                    // color="primary"
-                                                                />
-                                                                }
-                                                                label="Remember Me"
-                                                            />
-                                                        </Wrapper>
-                                                        
-                                                    </Column>
-                                                    <Column md={6}>
-                                                        <Wrapper display="flex" justifyContent="end" margin="1.5-0-0-0">
-                                                            <Link hoverColor="Default" onClick={() => setModalType("forgotPassword")}>Forgot Password?</Link>
-                                                        </Wrapper>
-                                                    </Column>
-                                                </Rows>
-                                                
-                                            </Wrapper>
-                                            <Wrapper display="flex" margin="1-0-0-0">
-                                                <Buttons 
-                                                    background="Default"
-                                                    hoverBackground="Default" 
-                                                    width="100%"
-                                                    onClick={signIn}
-                                                >
-                                                    {
-                                                        signInLoading ? (
-                                                            <Spinner animation="border" variant="light" />
-                                                        ) :
-                                                        (
-                                                            <React.Fragment>
-                                                                Sign In
-                                                            </React.Fragment>
-                                                        )
-                                                    }
-                                                    
-                                                </Buttons>
-                                                
-                                            </Wrapper>
-                                            <Wrapper display="flex" margin="1-0-0-0">
-                                                <Buttons 
-                                                    background="Default"
-                                                    hoverBackground="Default" 
-                                                    width="100%"
-                                                    onClick={register}
-                                                >
-                                                    {
-                                                        signInLoading ? (
-                                                            <Spinner animation="border" variant="light" />
-                                                        ) :
-                                                        (
-                                                            <React.Fragment>
-                                                                Sign Up
-                                                            </React.Fragment>
-                                                        )
-                                                    }
-                                                    
-                                                </Buttons>
-                                                
-                                            </Wrapper>
-                                        </Form>
-                                    </Wrapper>
-
+                                   <div className="signin">
+                                       <form action="">
+                                           <input type='email'/>
+                                           <input type='password'/>
+                                           <button>Sign In</button>
+                                       </form>
+                                   </div>
                                     {/* Don't Have an Account */}
                                     <Wrapper display="flex" margin="1.5-0-3-0">
                                         <Placeholder>
@@ -256,7 +160,7 @@ function AuthenticationModal({ show, onHide, type }) {
                                                 decoration={true}
                                                 hoverColor="primary"
                                                 onClick={() => {
-                                                    
+                                                    setModalType("signUp")
                                                 }}
                                             >
                                                 Sign Up
@@ -280,15 +184,16 @@ function AuthenticationModal({ show, onHide, type }) {
                                     <Wrapper display="flex" margin="1.5-0-0-0">
                                         <Link width="100%">
                                             {/* //TODO:user authentication */}
-                                            <Buttons background="Default" width="100%" hoverBackground="Default">
-                                                Sign In with Google</Buttons>
+                                            <Buttons background="Default" width="100%" hoverBackground="Default" onClick={signInWithFacebook}>
+                                            <FacebookIcon/>
+                                                Sign In with Facebook</Buttons>
                                         </Link>
                                     </Wrapper>
                                     <Wrapper display="flex" margin="1-0-0-0">
                                         <Link width="100%">
-                                            <Buttons background="Default" width="100%">
-                                                <FacebookIcon/>
-                                                Sign In with Facebook
+                                            <Buttons background="Default" width="100%" onClick={signInWithGoogle}>
+                                                {/* <GoogleIcon/> */}
+                                                Sign In with Google
                                             </Buttons>
                                         </Link>
                                     </Wrapper>
@@ -328,7 +233,7 @@ function AuthenticationModal({ show, onHide, type }) {
                                     <Wrapper display="flex">
                                         {/* //TODO:PLACE THEAVANT LOGOHERE  */}
                                         <Image
-                                            src="https://res.cloudinary.com/emacon-production/image/upload/v1627376803/Nairobarry/Samchi_Systems_2_B_dy8zvf.jpg"
+                                            src="images/avant.png"
                                             alt="Avant Tv"
                                             width="50px"
                                             height="50px"
@@ -363,7 +268,8 @@ function AuthenticationModal({ show, onHide, type }) {
                                             <TextField
                                                 fullWidth
                                                 required
-                                                type="text"
+                                                ref={emailRef} 
+                                                type="email"
                                                 label="Email Address"
                                                 value={email}
                                                 onChange={e => setEmail(e.target.value)}
@@ -379,20 +285,21 @@ function AuthenticationModal({ show, onHide, type }) {
                                             <TextField
                                                 fullWidth
                                                 required
+                                                ref={passwordRef}
                                                 type="password"
                                                 label="Password"
                                                 value={password}
                                                 onChange={e => setPassword(e.target.value)}
                                             />
-                                            <TextField
+                                            {/* <TextField
                                                 fullWidth
                                                 required
                                                 type="password"
                                                 label="Confirm Password"
                                                 value={confirmPassword}
                                                 onChange={e => setConfirmPassword(e.target.value)}
-                                            />
-                                            <Wrapper display="flex" justifyContent="start" margin="1-0-0-0">
+                                            /> */}
+                                            {/* <Wrapper display="flex" justifyContent="start" margin="1-0-0-0">
                                                 <FormControlLabel
                                                     control={
                                                     <Checkbox
@@ -404,7 +311,7 @@ function AuthenticationModal({ show, onHide, type }) {
                                                     }
                                                     label="Accept terms and conditions"
                                                 />
-                                            </Wrapper>
+                                            </Wrapper> */}
                                             <Wrapper display="flex" margin="1-0-0-0">
                                                 <Buttons
                                                     background="Default"
@@ -447,7 +354,7 @@ function AuthenticationModal({ show, onHide, type }) {
                                 <Column md={4}>
                                     <Wrapper display="flex" margin="8-0-0-0"> 
                                         <Image
-                                            src="https://res.cloudinary.com/emacon-production/image/upload/v1627463113/Nairobarry/Untitled_1.75.1_olm98i.jpg"
+                                            src="images/poster1 .png"
                                             width="216px"
                                             height="239px"
                                             margin="3-0-0-0" 
@@ -544,3 +451,5 @@ function AuthenticationModal({ show, onHide, type }) {
 }
 
 export default AuthenticationModal
+
+

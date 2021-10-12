@@ -43,6 +43,8 @@
     margin-right: auto;
     text-align:center;
     z-index: 1;
+    left: 0;
+    right: 0;
     color: #fff;
     padding: 20px;
 }

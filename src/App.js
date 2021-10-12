@@ -13,15 +13,18 @@ function App() {
   return (
    <div className="app">
       <Router>
-     {!user ?(
+     {
+     !user ?(
       <LoginScreen/>
      ):(
+     
       <Switch>
           <Route exact path="/">
           <LandingPage/>
             </Route>
       </Switch>
-     )}
+     )
+} 
     </Router>
    </div>
   );
